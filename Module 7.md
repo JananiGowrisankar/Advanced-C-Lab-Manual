@@ -16,12 +16,40 @@ Else
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
+struct eligible {
+    int age;
+    char n[50];
+};
+
+int main() {
+    struct eligible e;
+
+    printf("Enter Name: ");
+    scanf("%s", e.n);
+
+    printf("Enter Age: ");
+    scanf("%d", &e.age);
+
+    if (e.age <= 6) {
+        printf("Vaccine Eligibility: No\n");
+    } else {
+        printf("Vaccine Eligibility: Yes\n");
+    }
+
+    printf("Name: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+
+    return 0;
+}
+
+```
 
 Output:
 
-//paste your output here
+<img width="957" height="344" alt="image" src="https://github.com/user-attachments/assets/c7cef0aa-f5c3-42af-9994-6cdf5c99ef18" />
 
 
 Result:
@@ -43,18 +71,38 @@ Algorithm:
 7.	Return 0
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+struct numbers {
+    int a;
+    int b;
+};
 
+int add(struct numbers x) {
+    return x.a + x.b;
+}
 
+int main() {
+    struct numbers n;
 
+    printf("Enter value for a: ");
+    scanf("%d", &n.a);
 
+    printf("Enter value for b: ");
+    scanf("%d", &n.b);
+
+    int result = add(n);
+
+    printf("Result: %d\n", result);
+
+    return 0;
+}
+
+```
 Output:
 
-
-//paste your output here
-
-
+<img width="960" height="399" alt="image" src="https://github.com/user-attachments/assets/6d8eb587-3e73-4ed9-ab4f-64133309e0e8" />
 
 
 Result:
@@ -85,26 +133,38 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    FILE *p;
+    char name[50];
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    printf("File '%s' created successfully.\n", name);
+
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error: Unable to create file.\n");
+        return 1;
+    }
+
+    printf("File opened successfully.\n");
+
+    fclose(p);
+
+    printf("File closed successfully.\n");
+
+    return 0;
+}
 
 
-
-
+```
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
-
+<img width="793" height="285" alt="image" src="https://github.com/user-attachments/assets/ffec879c-ec5a-459c-bc5e-1cdbdb15b188" />
 
 Result:
 Thus, the program is verified successfully
@@ -132,21 +192,33 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
+int main()
+{
+    char f[20];
+    FILE *fp;
+    scanf("%s",f);
+    fp=fopen(f,"w");
+    int n,i;
+    char text[20];
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%s",text);
+    }
+    printf("%s Opened\n",f);
+    printf("Data added Successfully");
+    fclose(fp);
 
-//type your code here
-
-
-
+return 0;
+    
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+<img width="787" height="271" alt="image" src="https://github.com/user-attachments/assets/391bf0bc-86e3-4348-9c3d-aef2875bfdc1" />
 
 Result:
 Thus, the program is verified successfully
@@ -187,15 +259,56 @@ Algorithm:
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
 
+struct subject {
+    char name[50];
+    int marks;
+};
 
+int main() {
+    struct subject *s;
+    int n, i;
 
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
 
+    // Dynamic memory allocation
+    s = (struct subject*) malloc(n * sizeof(struct subject));
+
+    if (s == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    // Input subject details
+    for (i = 0; i < n; i++) {
+        printf("\nEnter subject %d name: ", i + 1);
+        scanf("%s", s[i].name);
+
+        printf("Enter subject %d marks: ", i + 1);
+        scanf("%d", &s[i].marks);
+    }
+
+    // Display subject details
+    printf("\n--- Subject Details ---\n");
+    for (i = 0; i < n; i++) {
+        printf("Subject %d: %s\n", i + 1, s[i].name);
+        printf("Marks: %d\n\n", s[i].marks);
+    }
+
+    // Free allocated memory
+    free(s);
+
+    return 0;
+}
+
+```
 Output:
 
-
-//paste your output here
+<img width="962" height="816" alt="image" src="https://github.com/user-attachments/assets/50008c9d-24e9-41db-8ed6-4d42ba60fc25" />
 
 
 
